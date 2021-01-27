@@ -14,7 +14,7 @@ for (i = 0; i < acc.length; i++) {
     });
 }
 
-var bandInput = $("#bandName");
+var bandInput = $("#band-name");
 var locationInput = $("#location");
 var search = $("#search");
 var clear = $("#clear");
@@ -22,6 +22,9 @@ var bandBio = $("band-bio");
 var bandDisco = $("band-discography");
 var concerts = $("conerts");
 var breweries = $("brewery-results");
+
+
+    
 
 
 
