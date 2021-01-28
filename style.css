@@ -60,6 +60,15 @@
         color: white;
       }
 
-      .foot { display: inline-block; line-height: 70px; vertical-align: top }
+      .siteFooterBar { 
+        display: inline-block; 
+        line-height: 70px; 
+        vertical-align: top;
+        Margin: auto; 
+      }
 
-      .img { display: inline-block; box-align: center }
+      .img { 
+        display: inline-block; 
+        box-align: center;
+        margin: auto;  
+      }
