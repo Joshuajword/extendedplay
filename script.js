@@ -40,7 +40,7 @@ function concertInformation(){
         url:queryUrl,
         method:"Get",
     })
-    .then(function(concerts) {
+    .then(function(_concerts) {
         console.log(queryUrl);
     })
 }
