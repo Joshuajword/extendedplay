@@ -24,7 +24,7 @@ var concerts = $("#concerts");
 var breweries = $("#brewery-results");
 
 //adds function to search button
-searchButton.on("click", function(){
+searchButton.on("click", function () {
     bandInput.val();
     locationInput.val();
     console.log(bandInput.val(), locationInput.val());
@@ -33,36 +33,43 @@ searchButton.on("click", function(){
 })
 
 
-function localBreweries(){
-var  queryUrl = "https://api.openbrewerydb.org/breweries?by_postal=" + locationInput.val();
+function localBreweries() {
+    var queryUrl = "https://api.openbrewerydb.org/breweries?by_postal=" + locationInput.val();
 
-$.ajax ({
-    url:queryUrl,
-    method:"Get",
-}) 
-.then(function(breweryList) {
-    console.log(queryUrl);
-    console.log(breweryList);
-    `<a href="-">link to breweries</a>`
-    breweries.empty()
-    for (var i = 0; i < breweryList.length; i++){
-        breweries.append(`<a href="${breweryList[i].website_url}">${breweryList[i].name}</a>`)
-    }
-})  
+    $.ajax({
+        url: queryUrl,
+        method: "Get",
+    })
+        .then(function (breweryList) {
+            console.log(queryUrl);
+            console.log(breweryList);
+            `<a href="-">link to breweries</a>`
+            breweries.empty();
+            for (var i = 0; i < breweryList.length; i++) {
+                breweries.append(`<a href="${breweryList[i].website_url}">${breweryList[i].name}</a>`)
+            }
+        })
 
 
 }
 
-function bandInformation(){
+function bandInformation() {
     var queryUrlBand = "https://api.discogs.com/database/search?q=" + bandInput.val() + "&token=sjwnRXyRkNbzMOUItONhtLYRMUGbnHiwgGMCFgdP";
-    // var queryUrlBand = "https://api.discogs.com/artists/1?callback=" + bandInput.val();
-    $.ajax ({
-        url:queryUrlBand,
-        method:"Get",
-    }) 
-    .then(function(response) {
-        console.log(queryUrlBand);
-        console.log(response);
-    }) 
+    $.ajax({
+        url: queryUrlBand,
+        method: "Get",
+    })
+        .then(function (albumList) {
+            console.log(queryUrlBand);
+            // console.log(albumList);
+            // console.log(albumList.results);
+    
+            bandDisco.empty();
+            for (var i = 0; i < albumList.results.length; i++){
+                console.log(albumList.results[i].title);
+                bandDisco.append(`<ul>"${albumList.results[i].title}"</ul>`)
+            
+            }
+        })
 }
 
