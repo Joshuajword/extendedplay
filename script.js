@@ -72,9 +72,16 @@ function bandInformation(){
         url:queryUrlBand,
         method:"Get",
     }) 
-    .then(function(response) {
+    .then(function(albumList) {
         console.log(queryUrlBand);
-        console.log(response);
+        console.log(albumList);
+        `<ul>search results</ul>`
+        // bandDisco.empty()
+        for (var e=0; e<albumList.length; e++){
+            bandDisco.append(`<ul>${albumList[e].results}</ul>`)
+        console.log(albumList[e].results)
+
+        }
     }) 
 }
 
