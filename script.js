@@ -18,7 +18,7 @@ var bandInput = $("#band-name");
 var locationInput = $("#location");
 var searchButton = $("#search");
 var clearButton = $("#clear");
-var bandBio = $("#band-bio");
+var bandBio = $("#band-Bio");
 var bandDisco = $("#band-discography");
 var concerts = $("#concerts");
 var breweries = $("#brewery-results");
@@ -55,21 +55,45 @@ function localBreweries() {
 
 function bandInformation() {
     var queryUrlBand = "https://api.discogs.com/database/search?q=" + bandInput.val() + "&token=sjwnRXyRkNbzMOUItONhtLYRMUGbnHiwgGMCFgdP";
+
     $.ajax({
         url: queryUrlBand,
         method: "Get",
     })
         .then(function (albumList) {
             console.log(queryUrlBand);
-            // console.log(albumList);
+            console.log(albumList);
             // console.log(albumList.results);
-    
+            //discography
             bandDisco.empty();
-            for (var i = 0; i < albumList.results.length; i++){
+            for (var i = 0; i < albumList.results.length; i++) {
                 console.log(albumList.results[i].title);
                 bandDisco.append(`<ul>"${albumList.results[i].title}"</ul>`)
-            
+
             }
+            var profileUrl = albumList.results[0].resource_url;
+            var bandProfile = getProfile(profileUrl);
+          
+            console.log(profileUrl);
+            
+            // link to band's page
+        })
+
+
+}
+
+function getProfile(profileResource) {
+    $.ajax({
+        url: profileResource,
+        method: "get",
+    })
+        .then(function (response) {
+            // console.log("=======")
+            // console.log(response.profile);
+            bandBio.empty();
+            bandBio.append(`<p>"${response.profile}"</p>`);
+            // return response.profile;
+
         })
 }
 
