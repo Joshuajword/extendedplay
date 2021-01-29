@@ -13,7 +13,7 @@ for (i = 0; i < acc.length; i++) {
         }
     });
 }
-
+//variables
 var bandInput = $("#band-name");
 var locationInput = $("#location");
 var searchButton = $("#search");
@@ -23,6 +23,7 @@ var bandDisco = $("#band-discography");
 var concerts = $("#concerts");
 var breweries = $("#brewery-results");
 
+//adds function to search button
 searchButton.on("click", function(){
     bandInput.val();
     locationInput.val();
@@ -53,7 +54,8 @@ $.ajax ({
 }
 
 function bandInformation(){
-    var queryUrlBand = "https://api.discogs.com/artists/1?callback=" + bandInput.val();
+    var queryUrlBand = "https://api.discogs.com/database/search?q=" + bandInput.val() + "&token=sjwnRXyRkNbzMOUItONhtLYRMUGbnHiwgGMCFgdP";
+    // var queryUrlBand = "https://api.discogs.com/artists/1?callback=" + bandInput.val();
     $.ajax ({
         url:queryUrlBand,
         method:"Get",
