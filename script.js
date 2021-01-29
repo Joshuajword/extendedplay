@@ -34,8 +34,7 @@ searchButton.on("click", function () {
 })
 
 function concertInformation(){
-    var queryUrl = "https://api.seatgeek.com/2/events?client_id=MjE1MTc5MTV8MTYxMTcwODQ0MS43NTExMTk0&client_secret=f4b171fe10abb7596219cdc85cc92ea099eed88a2f981f277950a5325b27cfe6" + locationInput.val();
-    var queryUrlBand = "https://api.seatgeek.com/2/performers/?client_id=MjE1MTc5MTV8MTYxMTcwODQ0MS43NTExMTk0&client_secret=f4b171fe10abb7596219cdc85cc92ea099eed88a2f981f277950a5325b27cfe6" + bandInput.val();
+    var queryUrl = "$ curl https://api.seatgeek.com/2/events?client_id=MjE1MTc5MTV8MTYxMTcwODQ0MS43NTExMTk0&client_secret=f4b171fe10abb7596219cdc85cc92ea099eed88a2f981f277950a5325b27cfe6" + bandInput.val();
 
     $.ajax ({
         url:queryUrl,
@@ -43,7 +42,6 @@ function concertInformation(){
     })
     .then(function(concerts) {
         console.log(queryUrl);
-        console.log(queryUrlBand);
     })
 }
 
