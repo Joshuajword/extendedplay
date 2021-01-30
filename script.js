@@ -33,12 +33,11 @@ searchButton.on("click", function () {
     concertInformation();
 })
 
-
 function getProfile(profileResource) {
     $.ajax({
         url: profileResource,
         method: "get",
-    })
+  })
         .then(function (response) {
             // console.log("=======")
             // console.log(response.profile);
