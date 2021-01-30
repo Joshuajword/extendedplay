@@ -34,7 +34,7 @@ searchButton.on("click", function () {
 })
 
 function concertInformation(){
-    var queryUrl = "$ curl https://api.seatgeek.com/2/events?client_id=MjE1MTc5MTV8MTYxMTcwODQ0MS43NTExMTk0&client_secret=f4b171fe10abb7596219cdc85cc92ea099eed88a2f981f277950a5325b27cfe6" + bandInput.val();
+    var queryUrl = "https://rest.bandsintown.com/v4/artists/" + bandInput.val() + /events/?app_id=c65dedcf04e65667f523ca7355f03c5d";
 
     $.ajax ({
         url:queryUrl,
