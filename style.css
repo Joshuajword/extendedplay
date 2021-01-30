@@ -1,3 +1,62 @@
+body {
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-size: cover;
+  position: sticky;
+  margin-top: 0%;
+  padding-top: 50px;
+  padding-right: 30px;
+  padding-bottom: 10px;
+  padding-left: 80px;
+}
+
+/*{
+/*  width: 100px;
+/*  height: 100px;
+/*  background-color: #0CB1C4;
+/*  animation-name: spin;
+/*  animation-duration: 5000ms;
+/*  animation-iteration-count: infinite;
+/*  animation-timing-function: linear; 
+/*  /* transform: rotate(3deg); */
+/*   /* transform: rotate(0.3rad);/ */
+/*   /* transform: rotate(3grad); */ 
+/*  /* transform: rotate(.03turn);  */
+/*}
+
+@keyframes spin {
+    from {
+        transform:rotate(0deg);
+    }
+    to {
+        transform:rotate(360deg);
+    }
+}
+
+/* For width smaller than 400px: */
+body {
+  background-image: url('/Images/cheers-beer\ background-2.jpg');
+}
+
+/* For width 400px and larger: */
+@media only screen and (max-width: 768px) {
+  body {
+    background-image: url('/Images/cheers-beer\ background.jpg');
+  }
+}
+
+
+.title{
+  font-size: 30px;
+  text-align: center;
+  font-style: Bold;
+}
+
+.subtitle{
+font-style: normal;
+text-align: center;
+}
+
 /* Accordian styling */
     .accordion {
         background-color: #eee;
