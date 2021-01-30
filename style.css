@@ -1,0 +1,128 @@
+body {
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-size: cover;
+  position: sticky;
+  margin-top: 0%;
+  padding-top: 50px;
+  padding-right: 30px;
+  padding-bottom: 10px;
+  padding-left: 80px;
+}
+
+
+/* For width smaller than 400px: */
+body {
+  background-image: url('/Images/cheers-beer\ background-2.jpg');
+}
+
+/* For width 400px and larger: */
+@media only screen and (max-width: 768px) {
+  body {
+    background-image: url('/Images/cheers-beer\ background.jpg');
+  }
+}
+
+h1{
+ 
+  -webkit-animation: spin 4s infinite linear;
+  float: none;
+}
+
+@-webkit-keyframes spin {
+0%  {-webkit-transform: rotate(0deg);}
+100% {-webkit-transform: rotate(360deg);}	
+
+}
+
+
+.title{
+  font-size: 30px;
+  text-align: center;
+  font-style: Bold;
+}
+
+.subtitle{
+font-style: normal;
+text-align: center;
+font-size: 40px;
+font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+color: white;
+background-color: gray;
+z-index: 1;
+}
+
+/* Accordian styling */
+    .accordion {
+        background-color: #eee;
+        color: #444;
+        cursor: pointer;
+        padding: 18px;
+        width: 100%;
+        border: none;
+        text-align: left;
+        outline: none;
+        font-size: 15px;
+        transition: 0.4s;
+    }
+    
+    .active, .accordion:hover {
+        background-color: #ccc;
+    }
+    
+    .accordion:after {
+        content: '\002B';
+        color: #777;
+        font-weight: bold;
+        float: right;
+        margin-left: 5px;
+    }
+    
+    .active:after {
+        content: "\2212";
+    }
+    
+    .panel {
+        padding: 0 18px;
+        background-color: white;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.2s ease-out;
+    }
+
+    /* verticle menu for bar search */
+    .vertical-menu {
+        width: 600px;
+        height: 150px;
+        overflow-y: auto;
+      }
+      
+      .vertical-menu a {
+        background-color: #eee;
+        color: black;
+        display: block;
+        padding: 12px;
+        text-decoration: none;
+      }
+      
+      .vertical-menu a:hover {
+        background-color: #ccc;
+      }
+      
+      .vertical-menu a.active {
+        background-color: #4CAF50;
+        color: white;
+      }
+
+      .siteFooterBar { 
+        display: inline-block; 
+        line-height: 70px; 
+        vertical-align: top;
+        Margin: auto; 
+      }
+
+      .img { 
+        display: inline-block; 
+        box-align: center;
+        margin: auto;  
+      }
