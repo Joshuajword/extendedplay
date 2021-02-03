@@ -91,9 +91,6 @@ function getReleases(bandReleases) {
                 
             }
     })
-        // return bandDisco.append(`<p>"No artist discography available at this time."</p>`);
-        // console.log(response.releases_url);
-        // return response.releases_url;
 }
 
 
