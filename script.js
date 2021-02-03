@@ -22,7 +22,7 @@ var bandBio = $("#band-Bio");
 var bandDisco = $("#band-discography");
 var concerts = $("#concerts");
 var breweries = $("#brewery-results");
-
+var bandDiscoError = $("#bandDiscoError")
 //adds function to search button
 searchButton.on("click", function () {
     bandInput.val();
@@ -30,14 +30,13 @@ searchButton.on("click", function () {
     console.log(bandInput.val(), locationInput.val());
     localBreweries();
     bandInformation();
-    concertInformation();
 })
 
 function getProfile(profileResource) {
     $.ajax({
         url: profileResource,
         method: "get",
-  })
+    })
         .then(function (response) {
             // console.log("=======")
             // console.log(response.profile);
@@ -70,10 +69,6 @@ function bandInformation() {
             var accessReleasesUrl = getReleases(profileUrl);
             // console.log(accessReleasesUrl);
             // var artistReleases = getAlbums(profileUrl);
-
-
-
-
             console.log(profileUrl);
 
             // link to band's page
@@ -86,10 +81,21 @@ function getReleases(bandReleases) {
         method: "GET",
     }).then(function (response) {
         var artistReleases = getAlbums(response.releases_url);
-        console.log(response.releases_url);
-        // return response.releases_url;
+         console.log(response.releases_url);
+         if (response.releases_url === undefined ) {
+            bandBio.empty();
+            // console.log("nothing");
+            var bioError = bandBio.append(`<p>This artist's profile and discography are not available at this time. Please check back later!</p>`);
+            // var albumError = bandDiscoError.append(`<p>This artist's albums are not available at this time. Please check back later!</p>`);
+            return (bioError);
+                
+            }
     })
+        // return bandDisco.append(`<p>"No artist discography available at this time."</p>`);
+        // console.log(response.releases_url);
+        // return response.releases_url;
 }
+
 
 function getAlbums(bandAlbums) {
     $.ajax({
@@ -101,26 +107,24 @@ function getAlbums(bandAlbums) {
         for (var i = 0; i < response.releases.length; i++) {
             console.log(response.releases[i].title);
             console.log(response.releases[i].year);
-            
-            bandDisco.append(`<ul>" Album Title: ${response.releases[i].title} <p>"Album Year: ${response.releases[i].year}</p>"</ul>`)
-
+            bandDisco.append(`<ul>" Album Title: ${response.releases[i].title} <p>"Album Year: ${response.releases[i].year}</p>"</ul>`);
         }
     })
 }
 
-function concertInformation() {
-    var queryUrl = "https://api.seatgeek.com/2/events?client_id=MjE1MTc5MTV8MTYxMTcwODQ0MS43NTExMTk0&client_secret=f4b171fe10abb7596219cdc85cc92ea099eed88a2f981f277950a5325b27cfe6" + locationInput.val();
-    var queryUrlBand = "https://api.seatgeek.com/2/performers/?client_id=MjE1MTc5MTV8MTYxMTcwODQ0MS43NTExMTk0&client_secret=f4b171fe10abb7596219cdc85cc92ea099eed88a2f981f277950a5325b27cfe6" + bandInput.val();
+// function concertInformation() {
+//     var queryUrl = "https://api.seatgeek.com/2/events?client_id=MjE1MTc5MTV8MTYxMTcwODQ0MS43NTExMTk0&client_secret=f4b171fe10abb7596219cdc85cc92ea099eed88a2f981f277950a5325b27cfe6" + locationInput.val();
+//     var queryUrlBand = "https://api.seatgeek.com/2/performers/?client_id=MjE1MTc5MTV8MTYxMTcwODQ0MS43NTExMTk0&client_secret=f4b171fe10abb7596219cdc85cc92ea099eed88a2f981f277950a5325b27cfe6" + bandInput.val();
 
-    $.ajax({
-        url: queryUrl,
-        method: "Get",
-    })
-        .then(function (concerts) {
-            console.log(queryUrl);
-            console.log(queryUrlBand);
-        })
-}
+//     $.ajax({
+//         url: queryUrl,
+//         method: "Get",
+//     })
+//         .then(function (concerts) {
+//             console.log(queryUrl);
+//             console.log(queryUrlBand);
+//         })
+// }
 
 
 function localBreweries() {
