@@ -33,17 +33,17 @@ searchButton.on("click", function () {
     concertInformation();
 })
 
-function concertInformation(){
-    var queryUrl = "https://rest.bandsintown.com/v4/artists/" + bandInput.val() + /events/?app_id=c65dedcf04e65667f523ca7355f03c5d";
+// function concertInformation(){
+//     var queryUrl = "https://rest.bandsintown.com/v4/artists/" + bandInput.val() + /events/?app_id="c65dedcf04e65667f523ca7355f03c5d";
 
-    $.ajax ({
-        url:queryUrl,
-        method:"Get",
-    })
-    .then(function(_concerts) {
-        console.log(queryUrl);
-    })
-}
+//     $.ajax ({
+//         url:queryUrl,
+//         method:"Get",
+//     })
+//     .then(function(_concerts) {
+//         console.log(queryUrl);
+//     })
+// }
 
 
 function localBreweries(){
@@ -108,4 +108,11 @@ function getProfile(profileResource) {
 
         })
 }
+
+var clearResults = $("#clear");
+clearResults.click(function(event){
+    bandDisco.empty();
+    bandBio.empty();
+});
+
 
