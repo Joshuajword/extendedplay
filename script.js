@@ -140,3 +140,13 @@ function localBreweries() {
             }
         })
 }
+
+var clearResults = $("#clear");
+clearResults.click(function(event){
+    bandDisco.empty();
+    bandBio.empty();
+    breweries.empty();
+    bandInput.val("");
+    locationInput.val("");
+    $("#barImg").hide();
+});
