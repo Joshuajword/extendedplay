@@ -20,7 +20,7 @@ var searchButton = $("#search");
 var clearButton = $("#clear");
 var bandBio = $("#band-Bio");
 var bandDisco = $("#band-discography");
-var getArtists = $("#concerts");
+var getConcerts = $("#concerts");
 var breweries = $("#brewery-results");
 
 //adds function to search button
@@ -30,7 +30,7 @@ searchButton.on("click", function () {
     console.log(bandInput.val(), locationInput.val());
     localBreweries();
     bandInformation();
-    getArtists();
+    getOffers();
 })
 
 function getProfile(profileResource) {
@@ -98,12 +98,15 @@ function getAlbums(bandAlbums) {
     })
 }
 
-function getConcerts(artistConcerts) {
-    var queryUrl = "https://rest.bandsintown.com/artists/" + bandInput.val() + "/events?app_id=c65dedcf04e65667f523ca7355f03c5d&date=upcoming";
-
+function getOffers(artistConcerts) {
+    var queryUrl = "https://rest.bandsintown.com/v4/artists/" + bandInput.val() + "/events?app_id=c65dedcf04e65667f523ca7355f03c5d&date=upcoming";
+    console.log
     $.ajax({
         url: artistConcerts,
         method: "Get",
+        success: function(response) {
+            console.log(response = '+response')
+        }
     })
         .then(function (concerts) {
             console.log(response.artist_id)
