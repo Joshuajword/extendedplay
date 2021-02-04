@@ -1,7 +1,7 @@
 //accordian script//
 var acc = document.getElementsByClassName("accordion");
 var i;
-
+$("#barImg").hide();
 for (i = 0; i < acc.length; i++) {
     acc[i].addEventListener("click", function () {
         this.classList.toggle("active");
@@ -30,7 +30,8 @@ searchButton.on("click", function () {
     console.log(bandInput.val(), locationInput.val());
     localBreweries();
     bandInformation();
-    concertInformation();
+    $("#barImg").show();
+    // concertInformation();
 })
 
 // function concertInformation(){
@@ -113,6 +114,10 @@ var clearResults = $("#clear");
 clearResults.click(function(event){
     bandDisco.empty();
     bandBio.empty();
+    breweries.empty();
+    bandInput.val("");
+    locationInput.val("");
+    $("#barImg").hide();
 });
 
 

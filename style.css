@@ -3,12 +3,13 @@ body {
   background-attachment: scroll;
   background-size: cover;
   position: sticky;
-  margin-top: 0%;
+  margin: 0;
   padding-top: 50px;
   padding-right: 30px;
   padding-bottom: 10px;
   padding-left: 80px;
   background-image: url("./Images/cheers-beer\ background.jpg");
+  overflow-x: hidden;
 }
 
 
@@ -101,9 +102,12 @@ border-radius: 15px;
 
     /* verticle menu for bar search */
     .vertical-menu {
-        width: 600px;
-        height: 150px;
+        width: 40%;
+        height: 300px;
         overflow-y: auto;
+        display: inline-block;
+        margin-right: 10px;
+        min-width: 300px;
       }
       
       .vertical-menu a {
@@ -123,12 +127,12 @@ border-radius: 15px;
         color: white;
       }
 
-      .siteFooterBar { 
+      /* .siteFooterBar { 
         display: inline-block; 
         line-height: 70px; 
         vertical-align: top;
         Margin: auto; 
-      }
+      } */
 
       .img { 
         display: inline-block; 
@@ -152,24 +156,48 @@ border-radius: 15px;
         font-size: 20px;
         color: mediumblue;
         background-color: white;
-        width: 13%;
+        width: fit-content;
+        padding: 7px;
+        /* border-radius: 10px; */
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
       }
       .searchResults{
-        background-color: black;
+        background-color: rgba(0, 0, 0, 0.616);
         border-radius: 10px;
-        margin-bottom: 30px
+        margin-bottom: 30px;
+        padding: 10px;
       }
 
       h3{
         font-size: 20px;
         color:white;
         background-color: rgba(185, 59, 13, 0.418);
-        width: 17%;
-        border-radius: 10px;
+        width: fit-content;
+        /* border-radius: 10px; */
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        padding: 7px;
       }
       .localBars{
         border-radius: 10px;
       }
-      img{
-        text-align: center;
+      .content{
+        width: 100vw;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
       }
+      .disk{
+    width: 120px;
+    /* margin:-60px 0 0 -60px; */
+    -webkit-animation:spin 4s linear infinite;
+    -moz-animation:spin 4s linear infinite;
+    animation:spin 4s linear infinite;
+}
+@-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
+@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
+@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); }
+}
+        
+      
