@@ -1,32 +1,17 @@
+
 body {
-  background-repeat: no-repeat;
-  background-attachment: scroll;
-  background-size: cover;
-  position: sticky;
   margin-top: 0%;
   padding-top: 50px;
   padding-right: 30px;
   padding-bottom: 10px;
-  padding-left: 80px;
-}
-
-
-/* For width smaller than 400px: */
-body {
-  background-image: url('/Images/cheers-beer\ background-2.jpg');
-}
-
-/* For width 400px and larger: */
-@media only screen and (max-width: 768px) {
-  body {
-    background-image: url('/Images/cheers-beer\ background.jpg');
-  }
+  padding-left: 50px;
 }
 
 h1{
  
   -webkit-animation: spin 4s infinite linear;
-  float: none;
+  flex-direction:row-reverse;
+  align-content: flex-end;
 }
 
 @-webkit-keyframes spin {
@@ -35,9 +20,8 @@ h1{
 
 }
 
-
 .title{
-  font-size: 30px;
+  font-size: 20px;
   text-align: center;
   font-style: Bold;
 }
@@ -49,7 +33,6 @@ font-size: 40px;
 font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 color: white;
 background-color: gray;
-z-index: 1;
 }
 
 /* Accordian styling */
@@ -121,8 +104,4 @@ z-index: 1;
         Margin: auto; 
       }
 
-      .img { 
-        display: inline-block; 
-        box-align: center;
-        margin: auto;  
-      }
+      
