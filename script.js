@@ -20,7 +20,7 @@ var searchButton = $("#search");
 var clearButton = $("#clear");
 var bandBio = $("#band-Bio");
 var bandDisco = $("#band-discography");
-var concerts = $("#concerts");
+var getArtists = $("#concerts");
 var breweries = $("#brewery-results");
 
 //adds function to search button
@@ -30,7 +30,7 @@ searchButton.on("click", function () {
     console.log(bandInput.val(), locationInput.val());
     localBreweries();
     bandInformation();
-    concertInformation();
+    getArtists();
 })
 
 function getProfile(profileResource) {
@@ -44,16 +44,11 @@ function getProfile(profileResource) {
             bandBio.empty();
             bandBio.append(`<p>"${response.profile}"</p>`);
             // return response.profile;
-
         })
 }
 
-
-
-
 function bandInformation() {
     var queryUrlBand = "https://api.discogs.com/database/search?q=" + bandInput.val() + "&token=sjwnRXyRkNbzMOUItONhtLYRMUGbnHiwgGMCFgdP";
-
 
     $.ajax({
         url: queryUrlBand,
@@ -70,12 +65,7 @@ function bandInformation() {
             var accessReleasesUrl = getReleases(profileUrl);
             // console.log(accessReleasesUrl);
             // var artistReleases = getAlbums(profileUrl);
-
-
-
-
             console.log(profileUrl);
-
             // link to band's page
         })
 }
@@ -108,17 +98,25 @@ function getAlbums(bandAlbums) {
     })
 }
 
-function concertInformation() {
-    var queryUrl = "https://api.seatgeek.com/2/events?client_id=MjE1MTc5MTV8MTYxMTcwODQ0MS43NTExMTk0&client_secret=f4b171fe10abb7596219cdc85cc92ea099eed88a2f981f277950a5325b27cfe6" + locationInput.val();
-    var queryUrlBand = "https://api.seatgeek.com/2/performers/?client_id=MjE1MTc5MTV8MTYxMTcwODQ0MS43NTExMTk0&client_secret=f4b171fe10abb7596219cdc85cc92ea099eed88a2f981f277950a5325b27cfe6" + bandInput.val();
+function getConcerts(artistConcerts) {
+    var queryUrl = "https://rest.bandsintown.com/artists/" + bandInput.val() + "/events?app_id=c65dedcf04e65667f523ca7355f03c5d&date=upcoming";
 
     $.ajax({
-        url: queryUrl,
+        url: artistConcerts,
         method: "Get",
     })
         .then(function (concerts) {
-            console.log(queryUrl);
-            console.log(queryUrlBand);
+            console.log(response.artist_id)
+            concerts.empty();
+            for (var i = 0; i < artist_id.results.length; i++) {
+                console.log(response.artists_url);
+                console.log(queryUrlBand);
+                `<a href="-">concerts</a>`
+                concerts.empty()
+                for (var i = 0; i < concerts.length; i++) {
+                    concerts.append(`<a href="${concerts[i].url}">${concerts[i].name}</a>`)
+                }
+            }
         })
 }
 
