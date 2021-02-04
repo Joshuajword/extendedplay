@@ -8,11 +8,7 @@ body {
   padding-right: 80px;
   padding-bottom: 10px;
   padding-left: 80px;
-<<<<<<< HEAD
-  background-image: url("./Images/cheers-beer\ background.jpg");
-=======
   background-image: url("./Images/cheers-beer\ background-2.jpg");
->>>>>>> origin/main
   overflow-x: hidden;
 }
 
@@ -26,13 +22,9 @@ body {
   body {
     background-image: url('/Images/cheers-beer\ background.jpg');
   }
-<<<<<<< HEAD
-} */ */
-=======
 } */ 
->>>>>>> origin/main
 
-/* h1{
+h1{
  
   -webkit-animation: spin 4s infinite;
   float: none;
@@ -40,23 +32,6 @@ body {
 @-webkit-keyframes spin {
 0%  {-webkit-transform: rotate(0deg);}
 100% {-webkit-transform: rotate(360deg);}	
-<<<<<<< HEAD
-
-} */
-
-
-/* .title{
-  /* font-size: 30px;
-  text-align: center;
-  font-style: Bold; */
-
-/* } */ 
-
-img{
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-=======
 } 
 
 
@@ -72,7 +47,6 @@ h1{
   margin-left: auto;
   margin-right: auto;
   
->>>>>>> origin/main
 }
 
 .subtitle{
@@ -222,10 +196,4 @@ border-radius: 15px;
 @-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
 @-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
 @keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); }
-<<<<<<< HEAD
 }
-        
-      
-=======
-}
->>>>>>> origin/main
