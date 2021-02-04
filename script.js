@@ -1,7 +1,7 @@
 //accordian script//
 var acc = document.getElementsByClassName("accordion");
 var i;
-$("#barImg").hide();
+
 for (i = 0; i < acc.length; i++) {
     acc[i].addEventListener("click", function () {
         this.classList.toggle("active");
@@ -30,41 +30,6 @@ searchButton.on("click", function () {
     console.log(bandInput.val(), locationInput.val());
     localBreweries();
     bandInformation();
-<<<<<<< HEAD
-    $("#barImg").show();
-    // concertInformation();
-})
-
-// function concertInformation(){
-//     var queryUrl = "https://rest.bandsintown.com/v4/artists/" + bandInput.val() + /events/?app_id="c65dedcf04e65667f523ca7355f03c5d";
-
-//     $.ajax ({
-//         url:queryUrl,
-//         method:"Get",
-//     })
-//     .then(function(_concerts) {
-//         console.log(queryUrl);
-//     })
-// }
-
-
-function localBreweries(){
-    var  queryUrl = "https://api.openbrewerydb.org/breweries?by_postal=" + locationInput.val();
-
-    $.ajax ({
-        url:queryUrl,
-        method:"Get",
-}) 
-    .then(function(breweryList) {
-        console.log(queryUrl);
-        console.log(breweryList);
-        `<a href="-">link to breweries</a>`
-        breweries.empty()
-        for (var i = 0; i < breweryList.length; i++){
-            breweries.append(`<a href="${breweryList[i].website_url}">${breweryList[i].name}</a>`)
-        }
-    })  
-=======
     getOffers();
 })
 
@@ -80,7 +45,6 @@ function getProfile(profileResource) {
             bandBio.append(`<p>"${response.profile}"</p>`);
             // return response.profile;
         })
->>>>>>> origin/main
 }
 
 function bandInformation() {
@@ -187,8 +151,3 @@ clearResults.click(function(event){
     locationInput.val("");
     $("#barImg").hide();
 });
-<<<<<<< HEAD
-
-
-=======
->>>>>>> origin/main
