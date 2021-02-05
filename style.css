@@ -52,10 +52,13 @@ h1{
 .subtitle{
 font-style: normal;
 text-align: center;
-font-size: 40px;
-font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-color: indigo;
-background-color: rgba(188, 143, 143, 0.904);
+padding: 70px;
+font-size: 30px;
+border-style: inset;
+border-color: rgb(255, 151, 24);
+font-family: Courier, monospace;
+color: rgb(255, 193, 24) ;
+background-color: rgba(100, 85, 45, 0.534);
 z-index: 1;
 border-radius: 15px;
 }
