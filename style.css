@@ -153,8 +153,9 @@ margin-bottom: 20px;
 }
 #search{
   overflow: auto;
-  color: black;
-  background-color: rgba(252, 150, 167, 0.623);
+  color: whitesmoke;
+  font-weight: bold;
+  background-color:  rgba(170, 83, 57, 0.623);
 }
 .column{
   background-color: transparent;
@@ -165,10 +166,15 @@ margin-bottom: 20px;
   background-color: rgba(63, 63, 63, 0.664);
   color: whitesmoke ;
 }
+.box{
+  background-color: rgba(54, 70, 54, 0.541);
+}
 h2{
   font-size: 20px;
-  color: mediumblue;
-  background-color: white;
+  font-weight: bolder;
+  color: rgb(103, 117, 103);
+  text-decoration: underline;
+  background-color: transparent;
   width: fit-content;
   padding: 7px;
   /* border-radius: 10px; */
@@ -176,7 +182,7 @@ h2{
   border-top-right-radius: 10px;
 }
 .searchResults{
-  background-color: rgba(0, 0, 0, 0.616);
+  background-color: transparent;
   border-radius: 10px;
   margin-bottom: 30px;
   padding: 10px;
@@ -184,7 +190,8 @@ h2{
 
 h3{
   font-size: 20px;
-  color: rgb(88, 51, 39);
+  font-weight: bold;
+  color: rgb(58, 33, 25);
   background-color:  rgba(170, 83, 57);
   width: fit-content;
   /* border-radius: 10px; */
@@ -194,6 +201,7 @@ h3{
 }
 #bars {
   background-color: transparent;
+  color:rgba(180, 180, 180, 0.877);
 }
 .localBars{
   border-radius: 10px;
