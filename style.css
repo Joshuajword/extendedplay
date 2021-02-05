@@ -52,12 +52,19 @@ h1{
 .subtitle{
 font-style: normal;
 text-align: center;
-font-size: 40px;
-font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-color: indigo;
-background-color: rgba(188, 143, 143, 0.904);
+padding: 70px;
+font-size: 30px;
+border-style: inset;
+border-color: rgb(255, 151, 24);
+font-family: Courier, monospace;
+color: rgb(255, 193, 24) ;
+background-color: rgba(100, 85, 45, 0.534);
 z-index: 1;
 border-radius: 15px;
+}
+
+.notification {
+  background-color: transparent;
 }
 
 /* Accordian styling */
@@ -109,7 +116,7 @@ border-radius: 15px;
       }
       
       .vertical-menu a {
-        background-color: #eee;
+        background-color:  rgba(170, 83, 57, 0.712);
         color: black;
         display: block;
         padding: 12px;
@@ -117,12 +124,12 @@ border-radius: 15px;
       }
       
       .vertical-menu a:hover {
-        background-color: #ccc;
+        background-color: rgba(170, 83, 57);
       }
       
       .vertical-menu a.active {
-        background-color: #4CAF50;
-        color: white;
+        background-color: rgba(29, 20, 17, 0.712);
+        color: rgb(170, 84, 57);
       }
 
       /* .siteFooterBar { 
@@ -132,66 +139,89 @@ border-radius: 15px;
         Margin: auto; 
       } */
 
-      .img { 
-        display: inline-block; 
-        box-align: center;
-        margin: auto;  
-      }
-      #search{
-        overflow: auto;
-        color: blue;
-        background-color: cyan;
-      }
-      .column{
-        background-color: peru;
-        border-radius: 10px;
-        width: 50;
-      }
-      #clear{
-        color: lawngreen;
-      }
-      h2{
-        font-size: 20px;
-        color: mediumblue;
-        background-color: white;
-        width: fit-content;
-        padding: 7px;
-        /* border-radius: 10px; */
-        border-top-left-radius: 10px;
-        border-top-right-radius: 10px;
-      }
-      .searchResults{
-        background-color: rgba(0, 0, 0, 0.616);
-        border-radius: 10px;
-        margin-bottom: 30px;
-        padding: 10px;
-      }
+.img { 
+  display: inline-block; 
+  box-align: center;
+  margin: auto;  
+}
 
-      h3{
-        font-size: 20px;
-        color:white;
-        background-color: rgba(185, 59, 13, 0.418);
-        width: fit-content;
-        /* border-radius: 10px; */
-        border-top-left-radius: 10px;
-        border-top-right-radius: 10px;
-        padding: 7px;
-      }
-      .localBars{
-        border-radius: 10px;
-      }
-      .content{
-        width: 100vw;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-      }
-      .disk{
-    width: 120px;
-    /* margin:-60px 0 0 -60px; */
-    -webkit-animation:spin 4s linear infinite;
-    -moz-animation:spin 4s linear infinite;
-    animation:spin 4s linear infinite;
+#band-name{
+  margin-bottom: 20px;
+}
+#location{
+margin-bottom: 20px;
+}
+#search{
+  overflow: auto;
+  color: whitesmoke;
+  font-weight: bold;
+  background-color:  rgba(170, 83, 57, 0.623);
+}
+.column{
+  background-color: transparent;
+  border-radius: 10px;
+  width: 50;
+}
+#clear{
+  background-color: rgba(63, 63, 63, 0.664);
+  color: whitesmoke ;
+}
+.box{
+  background-color: rgba(54, 70, 54, 0.541);
+}
+h2{
+  font-size: 20px;
+  font-weight: bolder;
+  color: rgb(103, 117, 103);
+  text-decoration: underline;
+  background-color: transparent;
+  width: fit-content;
+  padding: 7px;
+  /* border-radius: 10px; */
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+.searchResults{
+  background-color: transparent;
+  border-radius: 10px;
+  margin-bottom: 30px;
+  padding: 10px;
+}
+
+h3{
+  font-size: 20px;
+  font-weight: bold;
+  color: rgb(58, 33, 25);
+  background-color:  rgba(170, 83, 57);
+  width: fit-content;
+  /* border-radius: 10px; */
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  padding: 7px;
+}
+#bars {
+  background-color: transparent;
+  color:rgba(180, 180, 180, 0.877);
+}
+.localBars{
+  border-radius: 10px;
+  }
+
+.content{
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+ul {
+margin-top: 20px;
+}
+.disk{
+width: 120px;
+/* margin:-60px 0 0 -60px; */
+-webkit-animation:spin 4s linear infinite;
+-moz-animation:spin 4s linear infinite;
+animation:spin 4s linear infinite;
 }
 @-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
 @-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
