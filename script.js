@@ -99,7 +99,7 @@ function getAlbums(bandAlbums) {
         for (var i = 0; i < response.releases.length; i++) {
             console.log(response.releases[i].title);
             console.log(response.releases[i].year);
-            bandDisco.append(`<ul>" Album Title: ${response.releases[i].title} <p>"Album Year: ${response.releases[i].year}</p>"</ul>`);
+            bandDisco.append(`<ul><p>Album Title: ${response.releases[i].title}</p><p>Album Year: ${response.releases[i].year}</p></ul>`);
         }
     })
 }
