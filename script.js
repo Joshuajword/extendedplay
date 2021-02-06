@@ -20,9 +20,10 @@ var searchButton = $("#search");
 var clearButton = $("#clear");
 var bandBio = $("#band-Bio");
 var bandDisco = $("#band-discography");
-var getArtists = $("#concerts");
+var events = $(".events");
 var breweries = $("#brewery-results");
 var bandDiscoError = $("#bandDiscoError")
+
 //adds function to search button
 searchButton.on("click", function () {
     bandInput.val();
@@ -30,16 +31,27 @@ searchButton.on("click", function () {
     console.log(bandInput.val(), locationInput.val());
     localBreweries();
     bandInformation();
-    
+    getConcerts();
 })
 
+//clear button
+var clearResults = $("#clear");
+clearResults.click(function (event) {
+    bandDisco.empty();
+    bandBio.empty();
+    breweries.empty();
+    bandInput.val("");
+    locationInput.val("");
+    $("#barImg").hide();
+});
+
+//gets artist profile
 function getProfile(profileResource) {
     $.ajax({
         url: profileResource,
         method: "get",
     })
         .then(function (response) {
-            // console.log("=======")
             // console.log(response.profile);
             bandBio.empty();
             bandBio.append(`<p>"${response.profile}"</p>`);
@@ -47,6 +59,7 @@ function getProfile(profileResource) {
         })
 }
 
+//Grabs artist's resource URL so we can access the artist's profile
 function bandInformation() {
     var queryUrlBand = "https://api.discogs.com/database/search?q=" + bandInput.val() + "&token=sjwnRXyRkNbzMOUItONhtLYRMUGbnHiwgGMCFgdP";
 
@@ -65,30 +78,33 @@ function bandInformation() {
             var accessReleasesUrl = getReleases(profileUrl);
             // console.log(accessReleasesUrl);
             // var artistReleases = getAlbums(profileUrl);
-            console.log(profileUrl);
+            // console.log(profileUrl);
             // link to band's page
         })
 }
 
+//Gets artist's discography
 function getReleases(bandReleases) {
     $.ajax({
         url: bandReleases,
         method: "GET",
     }).then(function (response) {
         var artistReleases = getAlbums(response.releases_url);
-         console.log(response.releases_url);
-         if (response.releases_url === undefined ) {
+        // console.log(response.releases_url);
+
+        //conditional statement when the artist's profile & discography is under the "master resource"
+        if (response.releases_url === undefined) {
             bandBio.empty();
             // console.log("nothing");
             var bioError = bandBio.append(`<p>This artist's profile and discography are not available at this time. Please check back later!</p>`);
             // var albumError = bandDiscoError.append(`<p>This artist's albums are not available at this time. Please check back later!</p>`);
             return (bioError);
-                
-            }
+
+        }
     })
 }
 
-
+//Function that gets the artist's album title and year
 function getAlbums(bandAlbums) {
     $.ajax({
         url: bandAlbums,
@@ -104,45 +120,33 @@ function getAlbums(bandAlbums) {
     })
 }
 
-
-// function concertInformation() {
-//     var queryUrl = "https://api.seatgeek.com/2/events?client_id=MjE1MTc5MTV8MTYxMTcwODQ0MS43NTExMTk0&client_secret=f4b171fe10abb7596219cdc85cc92ea099eed88a2f981f277950a5325b27cfe6" + locationInput.val();
-//     var queryUrlBand = "https://api.seatgeek.com/2/performers/?client_id=MjE1MTc5MTV8MTYxMTcwODQ0MS43NTExMTk0&client_secret=f4b171fe10abb7596219cdc85cc92ea099eed88a2f981f277950a5325b27cfe6" + bandInput.val();
-
-//     $.ajax({
-//         url: queryUrl,
-//         method: "Get",
-//     })
-//         .then(function (concerts) {
-//             console.log(queryUrl);
-//             console.log(queryUrlBand);
-//         })
-// }
-
-function getConcerts(artistConcerts) {
-    var queryUrl = "https://rest.bandsintown.com/artists/" + bandInput.val() + "/events?app_id=c65dedcf04e65667f523ca7355f03c5d&date=upcoming";
+//grabs event information for the artist
+function getConcerts() {
+    var queryUrl = "https://rest.bandsintown.com/artists/" + bandInput.val() + "/events?app_id=c65dedcf04e65667f523ca7355f03c5d";
 
     $.ajax({
-        url: artistConcerts,
+        url: queryUrl,
         method: "Get",
     })
-        .then(function (concerts) {
-            console.log(response.artist_id)
-            concerts.empty();
-            for (var i = 0; i < artist_id.results.length; i++) {
-                console.log(response.artists_url);
-                console.log(queryUrlBand);
-                `<a href="-">concerts</a>`
-                concerts.empty()
-                for (var i = 0; i < concerts.length; i++) {
-                    concerts.append(`<a href="${concerts[i].url}">${concerts[i].name}</a>`)
-                }
+        .then(function (eventInfo) {
+            console.log(queryUrl);
+            // console.log(eventUrl[0].url);
+            events.empty();
+            for (var i = 0; i < eventInfo.length; i++) {
+                console.log(eventInfo[i].url);
+                console.log(eventInfo[i].datetime);
+                console.log(eventInfo[i].lineup);
+                events.append(`<a href=Link: ${eventInfo[i].url}></a><p>${eventInfo[i].datetime}</p><p>${eventInfo[i].lineup}</p>`);
             }
+
         })
+
+
 }
 
 
 
+//Function that gets the local bars related to the user's location input
 function localBreweries() {
     var queryUrl = "https://api.openbrewerydb.org/breweries?by_postal=" + locationInput.val();
 
@@ -161,12 +165,4 @@ function localBreweries() {
         })
 }
 
-var clearResults = $("#clear");
-clearResults.click(function(event){
-    bandDisco.empty();
-    bandBio.empty();
-    breweries.empty();
-    bandInput.val("");
-    locationInput.val("");
-    $("#barImg").hide();
-});
+
