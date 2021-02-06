@@ -25,15 +25,18 @@ body {
 } */ 
 
 h1{
-  position: static;
   margin: auto;
-  width: 800px;
-  height: 600px;
+  width: 100%;
+  max-width: 800px;
+  height: auto;
   animation-name: spin;
   animation-duration: 7s;
   animation-iteration-count: infinite;
   animation-timing-function: linear;
   float: top;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
   @keyframes spin {
@@ -53,12 +56,6 @@ h1{
 
  } 
 
-h1{
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  
-}
 
 .subtitle{
 font-style: normal;
