@@ -20,7 +20,7 @@ var searchButton = $("#search");
 var clearButton = $("#clear");
 var bandBio = $("#band-Bio");
 var bandDisco = $("#band-discography");
-var events = $(".events");
+var bandEvents = $("#band-events");
 var breweries = $("#brewery-results");
 var bandDiscoError = $("#bandDiscoError")
 
@@ -131,12 +131,16 @@ function getConcerts() {
         .then(function (eventInfo) {
             console.log(queryUrl);
             // console.log(eventUrl[0].url);
-            events.empty();
+            bandEvents.empty();
             for (var i = 0; i < eventInfo.length; i++) {
                 console.log(eventInfo[i].url);
                 console.log(eventInfo[i].datetime);
                 console.log(eventInfo[i].lineup);
-                events.append(`<a href=Link: ${eventInfo[i].url}></a><p>${eventInfo[i].datetime}</p><p>${eventInfo[i].lineup}</p>`);
+                bandEvents.append(`<ul>
+                <a href=${eventInfo[i].url}>Click here for event info!</a>
+                <li>Date: ${eventInfo[i].datetime}</li>
+                <li>Line-up: ${eventInfo[i].lineup}</li>
+                </ul>`);
             }
 
         })
