@@ -1,3 +1,4 @@
+/* contains background image */
 body {
   background-image: url("./Images/cheers-beer\ background-2.jpg");
   background-position: center center;
@@ -11,19 +12,8 @@ body {
   padding-left: 80px;
   overflow-x: hidden;
 }
-
-
-/* For width smaller than 400px: */
-/* body {
-  background-image: url('/Images/cheers-beer\ background-2.jpg');
-}
-/* For width 400px and larger: */
-/* @media only screen and (max-width: 768px) {
-  body {
-    background-image: url('/Images/cheers-beer\ background.jpg');
-  }
-} */ 
-
+ 
+/* contains animation for spinning record for the title */
 h1{
   margin: auto;
   width: 100%;
@@ -48,20 +38,29 @@ h1{
     }
 }
 
+@media (max-width: 800px) { 
+  .subtitleDiv {
+    display: grid;  
+    grid-template-columns: repeat(3, 100px);  
+    grid-template-rows: repeat(2, 50px);
+    margin: auto; 
+  }
+ }
 
-.title{
-   font-size: 30px;
-  text-align: center;
-  font-style: Bold; 
+@media (max-width: 800px) { 
+  .subtitle {
+    font-size: 3vw;
+    text-align: justify;
+  }
+ }
 
- } 
 
-
+/* contains Extended Play's about section */
 .subtitle{
 font-style: normal;
 text-align: center;
 padding: 70px;
-font-size: 30px;
+font-size: auto;
 border-style: inset;
 border-color: rgb(255, 151, 24);
 font-family: Courier, monospace;
@@ -140,43 +139,43 @@ border-radius: 15px;
         color: rgb(170, 84, 57);
       }
 
-      /* .siteFooterBar { 
-        display: inline-block; 
-        line-height: 70px; 
-        vertical-align: top;
-        Margin: auto; 
-      } */
-
-.img { 
-  display: inline-block; 
-  box-align: center;
-  margin: auto;  
+/* contains input boxes and buttons */
+.column{
+  background-color: transparent;
+  border-radius: 10px;
+  width: 50;
 }
-
+/* band input box */
 #band-name{
   margin-bottom: 20px;
 }
+
+/* location input box */
 #location{
 margin-bottom: 20px;
 }
+
+/* search button */
 #search{
   overflow: auto;
   color: whitesmoke;
   font-weight: bold;
   background-color:  rgba(170, 83, 57, 0.623);
 }
-.column{
-  background-color: transparent;
-  border-radius: 10px;
-  width: 50;
-}
+
+
+/* clear button */
 #clear{
   background-color: rgba(63, 63, 63, 0.664);
   color: whitesmoke ;
 }
+
+/* background for bio, discography, and events */
 .box{
   background-color: rgba(54, 70, 54, 0.541);
 }
+
+/*search results heading*/
 h2{
   font-size: 20px;
   font-weight: bolder;
@@ -196,6 +195,7 @@ h2{
   padding: 10px;
 }
 
+/* Local Bars heading */
 h3{
   font-size: 20px;
   font-weight: bold;
@@ -207,6 +207,8 @@ h3{
   border-top-right-radius: 10px;
   padding: 7px;
 }
+
+/* local bars output */
 #bars {
   background-color: transparent;
   color:rgba(180, 180, 180, 0.877);
@@ -222,16 +224,5 @@ h3{
   justify-content: center;
 }
 ul {
-margin-top: 20px;
-}
-.disk{
-width: 120px;
-/* margin:-60px 0 0 -60px; */
--webkit-animation:spin 4s linear infinite;
--moz-animation:spin 4s linear infinite;
-animation:spin 4s linear infinite;
-}
-@-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
-@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
-@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); }
+  margin-top: 20px;
 }
