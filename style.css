@@ -1,14 +1,14 @@
 body {
+  background-image: url("./Images/cheers-beer\ background-2.jpg");
+  background-position: center center;
   background-repeat: no-repeat;
-  background-attachment: scroll;
+  background-attachment: fixed;
   background-size: cover;
-  position: sticky;
   margin: 0;
   padding-top: 50px;
   padding-right: 80px;
   padding-bottom: 10px;
   padding-left: 80px;
-  background-image: url("./Images/cheers-beer\ background-2.jpg");
   overflow-x: hidden;
 }
 
